@@ -1,15 +1,3 @@
-/**
-* Template Name: Appland
-* Template URL: https://bootstrapmade.com/free-bootstrap-app-landing-page-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Poppins",  system-ui, -apple-system, "Poppins", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -473,10 +461,6 @@ h6 {
   margin-bottom: 0;
 }
 
-.footer .credits {
-  margin-top: 6px;
-  font-size: 13px;
-}
 
 /*--------------------------------------------------------------
 # Preloader
@@ -754,10 +738,6 @@ section,
   transform: translate(5px, 0);
 }
 
-/*--------------------------------------------------------------
-# Features Section
---------------------------------------------------------------*/
-
 
 /*--------------------------------------------------------------
 # Feature Details Section
@@ -779,27 +759,6 @@ section,
 .feature-details .features-item h3 {
   font-weight: 700;
   font-size: 26px;
-}
-
-.feature-details .features-item ul {
-  list-style: none;
-  padding: 0;
-}
-
-.feature-details .features-item ul li {
-  padding-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.feature-details .features-item ul li:last-child {
-  padding-bottom: 0;
-}
-
-.feature-details .features-item ul i {
-  font-size: 20px;
-  padding-right: 4px;
-  color: var(--accent-color);
 }
 
 .feature-details .features-item p:last-child {
@@ -878,8 +837,7 @@ section,
 
 .testimonials .testimonial-item .testimonial-img {
   width: 90px;
-  border-radius: 10px;
-  border: 6px solid var(--background-color);
+  border: 0px solid var(--background-color);
   position: absolute;
   left: -45px;
 }
@@ -1046,29 +1004,4 @@ section,
   transform: rotate(90deg);
 }
 
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
-.contact .info-item {
-  background: color-mix(in srgb, var(--default-color), transparent 96%);
-  padding: 30px;
-}
 
-.contact .info-item i {
-  font-size: 38px;
-  line-height: 0;
-  color: var(--accent-color);
-}
-
-.contact .info-item h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 20px 0 10px 0;
-}
-
-.contact .info-item p {
-  padding: 0;
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
-}
