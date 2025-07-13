@@ -1,1 +1,1 @@
-Ini proyek Qalboost
+Qalboost adalah platform refleksi digital yang membantu pengguna mengenali suasana hati dan memberikan respons berupa nasihat Islami seperti ayat, hadist, atau kutipan bijak. Dengan pendekatan yang sederhana dan interaktif, Qalboost hadir sebagai teman harian untuk menjaga ketenangan hati dan memperkuat iman, khususnya di kalangan Gen Z.
