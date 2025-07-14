@@ -50,9 +50,7 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/*
-# Global Header
-*/
+/* Global Header */
 .header {
   color: var(--default-color);
   background-color: var(--background-color);
