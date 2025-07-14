@@ -356,20 +356,12 @@ h6 {
 
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
-  color: var(--contrast-color);
-  background: hsl(16, 100%, 61%);
-  font-size: 5px;
-  padding: 6px 18px;
-  margin: 0 0 0 15px;
-  border-radius: 50px;
-  transition: 0.3s;
+  display: none;           /* Sembunyikan elemen sepenuhnya */
+  pointer-events: none;    /* Nonaktifkan klik (jika tetap tampil) */
+  opacity: 0;              /* Pastikan transparan */
+  visibility: hidden;      /* Alternatif tambahan */
 }
 
-.header .btn-getstarted:hover,
-.header .btn-getstarted:focus:hover {
-  color: var(--contrast-color);
-  background: #004e89;
-}
 
   .navmenu .dropdown>.dropdown-active {
     display: block;
@@ -389,6 +381,23 @@ h6 {
     margin-right: 0;
     z-index: 9999;
   }
+
+#home {
+  padding-top: 30px; /* Atur sesuai kebutuhan, misalnya 0px, 20px, dst */
+}
+
+#statistik {
+  padding-top: 20px; /* Atur sesuai kebutuhan, misalnya 0px, 20px, dst */
+}
+
+.col-md-20 h3 {
+  font-size: 20px; /* Ukuran judul - bisa kamu kecilkan lagi sesuai keinginan */
+}
+
+.col-md-20 p {
+  font-size: 0.7rem; /* Ukuran paragraf */
+  line-height: 1.6;  /* Opsional: untuk keterbacaan lebih baik */
+}
 
   .mobile-nav-active .navmenu {
     position: fixed;
