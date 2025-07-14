@@ -239,10 +239,14 @@
       </div>
     </section>
 
+    <section style="background-color: #FF6B35; padding: 1px;">
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">QalBoost - Setiap rasa ada tempatnya dan ada nasihatnya</strong></p>
-      <p>Universitas Islam Negeri Sumatera Utara Medan 2025</p>
-    </div>
+      <p style="color: white; font-style: oblique;">© <span style="color: white; font-style: oblique;">Copyright</span> <strong class="px-1 sitename" style="color: white; font-style: oblique;">QalBoost - KD2</strong></p>
+      <span style="color: white;"><p>
+        <img src="assets/img/uinsu.png" width="40" height="40">
+         Universitas Islam Negeri Sumatra Utara Medan 2025</p>
+        </span>
+    </div> </section>
   </main>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -286,16 +290,16 @@
   if (mood === 'good') {
     options = `
       <div>
-        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}')">Senang</div>
-        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}')">Bahagia</div>
-        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}')">Tenang</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Senang')">Senang</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Bahagia')">Bahagia</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Tenang')">Tenang</div>
       </div>`;
   } else {
     options = `
       <div>
-        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}')">Kecewa</div>
-        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}')">Marah</div>
-        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}')">Sedih</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Kecewa')">Kecewa</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Marah')">Marah</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Sedih')">Sedih</div>
       </div>`;
   }
 
@@ -304,22 +308,53 @@
 
 
 
-    function showResponses(event, mood) {
+    function showResponses(event, mood, submood) {
   event.stopPropagation();
   const responseSection = document.getElementById('response-section');
   responseSection.style.display = 'block';
 
   const moodClass = mood === 'good' ? 'bubble-good' : 'bubble-bad';
 
-  // Tambahkan kelas mood ke setiap bubble-option di dalam response-section
   document.querySelectorAll('#response-section .bubble-option').forEach(el => {
     el.classList.remove('bubble-good', 'bubble-bad');
     el.classList.add(moodClass);
   });
 
+  // Set konten berdasarkan submood
+  const quran = document.querySelector('#quran .dropdown-inner');
+  const hadits = document.querySelector('#hadits .dropdown-inner');
+  const quotes = document.querySelector('#quotes .dropdown-inner');
+
+  if (submood === 'Senang') {
+    quran.innerHTML = `<strong>QS. An-Najm: 43</strong><br>"Dan Dia-lah yang menjadikan orang tertawa dan menangis."<br><em>(Allah menciptakan keceriaan dalam hati)</em>`;
+    hadits.innerHTML = `<strong>HR. Muslim</strong><br>"Orang yang memberi kebahagiaan kepada saudaranya, Allah akan memberinya kebahagiaan pada hari kiamat."<br><em>(Kebahagiaan itu berkah)</em>`;
+    quotes.innerHTML = `<strong>Ustadz Adi Hidayat</strong><br>"Bahagia itu sederhana, ketika hati bersyukur dan jiwa tenang."`;
+  } else if (submood === 'Bahagia') {
+    quran.innerHTML = `<strong>QS. Yunus: 58</strong><br>"Katakanlah: Dengan karunia Allah dan rahmat-Nya, hendaklah dengan itu mereka bergembira."<br><em>(Bahagia karena rahmat-Nya)</em>`;
+    hadits.innerHTML = `<strong>HR. Ahmad</strong><br>"Sesungguhnya Allah menyukai hamba yang selalu bersyukur."<br><em>(Kebahagiaan lahir dari syukur)</em>`;
+    quotes.innerHTML = `<strong>Ustadz Hanan Attaki</strong><br>"Jangan tunggu bahagia baru bersyukur. Tapi bersyukurlah, maka kamu akan bahagia."`;
+  } else if (submood === 'Tenang') {
+    quran.innerHTML = `<strong>QS. Ar-Ra’d: 28</strong><br>"Ingatlah, hanya dengan mengingat Allah hati menjadi tenang."<br><em>(Sumber ketenangan sejati)</em>`;
+    hadits.innerHTML = `<strong>HR. Bukhari</strong><br>"Ketenangan adalah dari Allah dan tergesa-gesa dari setan."<br><em>(Tenang adalah bagian dari iman)</em>`;
+    quotes.innerHTML = `<strong>Ustadz Salim A. Fillah</strong><br>"Tenanglah, karena takdir Allah selalu indah pada waktunya."`;
+  } else if (submood === 'Kecewa') {
+    quran.innerHTML = `<strong>QS. Al-Baqarah: 286</strong><br>"Allah tidak membebani seseorang melainkan sesuai kesanggupannya."<br><em>(Kekecewaan juga punya batas dan makna)</em>`;
+    hadits.innerHTML = `<strong>HR. Tirmidzi</strong><br>"Ketahuilah... itulah hati."<br><em>(Jaga hati meski kecewa)</em>`;
+    quotes.innerHTML = `<strong>Ustadz Felix Siauw</strong><br>"Allah tidak pernah mengecewakan hamba-Nya yang berharap penuh kepada-Nya."`;
+  } else if (submood === 'Marah') {
+    quran.innerHTML = `<strong>QS. Ali Imran: 134</strong><br>"Dan orang-orang yang menahan amarahnya dan memaafkan (kesalahan) orang lain."<br><em>(Kendalikan amarah dengan iman)</em>`;
+    hadits.innerHTML = `<strong>HR. Bukhari</strong><br>"Bukanlah orang kuat itu yang menang dalam pergulatan, tapi yang mampu menahan amarahnya."<br><em>(Marah itu ujian kekuatan jiwa)</em>`;
+    quotes.innerHTML = `<strong>Ustadz Abdul Somad</strong><br>"Marah bukan tanda kekuatan, tapi kelemahan yang tak terkontrol."`;
+  } else if (submood === 'Sedih') {
+    quran.innerHTML = `<strong>QS. Yusuf: 87</strong><br>"Janganlah kamu berputus asa dari rahmat Allah."<br><em>(Kesedihan tak berarti akhir)</em>`;
+    hadits.innerHTML = `<strong>HR. Bukhari</strong><br>"Jika Allah mencintai suatu kaum, maka Dia mengujinya."<br><em>(Kesedihan adalah bentuk cinta Allah)</em>`;
+    quotes.innerHTML = `<strong>Ustadz Badrussalam</strong><br>"Kesedihan hari ini adalah pelajaran untuk bahagia esok hari."`;
+  }
+
   // Tutup semua dropdown
   ['quran', 'hadits', 'quotes'].forEach(id => document.getElementById(id).classList.remove('show'));
 }
+
 
 
     function toggleDropdown(id) {
