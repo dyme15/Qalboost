@@ -39,11 +39,9 @@
     }
     .mood-option[data-mood="good"]::before {
       content: '🙂';
-      display: inline-block;
     }
     .mood-option[data-mood="bad"]::before {
       content: '🙁';
-      display: inline-block;
     }
     .mood-option[data-mood="good"].active::before {
       content: '😄';
@@ -53,7 +51,6 @@
     }
 
     .bubble-option {
-      display: inline-block;
       background-color: #f0f0f0;
       padding: 10px 20px;
       border-radius: 25px;
@@ -65,6 +62,7 @@
       opacity: 0;
       transform: translateY(20px);
       animation: riseUp 0.5s forwards;
+      display: inline-block;
     }
 
     @keyframes riseUp {
@@ -75,36 +73,55 @@
     }
 
     .bubble-option:hover,
-    .bubble-option.active
-    {
+    .bubble-option.active {
       background-color: #1A659E;
       color: #ffffff;
     }
+
     .response-section {
       margin-top: 30px;
       display: none;
-      animation: fadeIn 0.5s ease-in-out;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+
     .dropdown-content {
       margin-top: 10px;
       padding: 15px;
       border-left: 3px solid #ccc;
       background: #fafafa;
       border-radius: 5px;
-      animation: fadeIn 0.5s ease-in-out;
+      animation: fadeInDrop 0.5s ease-in-out;
+      position: relative;
     }
+
+    @keyframes fadeInDrop {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .dropdown-content-icon {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .dropdown-content-icon img {
       width: 32px;
       height: 32px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #666;
     }
   </style>
 </head>
@@ -123,16 +140,18 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="qchecker.html#trackq">Q-Checker</a>
+      <a class="btn-getstarted" href="qchecker.html#mood">Q-Checker</a>
     </div>
   </header>
 
   <main class="main">
     <!-- Section Q-Checker -->
-    <section id="trackq" class="section" data-aos="fade-up">
+    <section id="mood" class="section" data-aos="fade-up">
       <div class="container">
         <div class="section-title text-center">
-          <h2>Q-Checker</h2>
+          <h2>
+            <span style="color: #004E89;">Q-</span><span style="color: #FF6B35;">Checker</span>
+          </h2>
           <p>Pilih mood kamu hari ini</p>
         </div>
 
@@ -142,47 +161,63 @@
         </div>
 
         <div id="mood-suboptions" class="text-center mt-4"></div>
-        <div id="response-section" class="response-section">
-          <h4 class="text-center">Pilih jenis nasihat:</h4>
-          <div class="text-center mt-3 d-flex flex-column align-items-center gap-2">
-            <div class="bubble-option" onclick="showDropdown('quran')">
-              <div class="dropdown-content-icon">
-                <img src="assets/img/quran.png" alt="Quran Icon">
-                <span>Potongan Al-Qur'an</span>
-              </div>
-            </div>
-            <div class="bubble-option" onclick="showDropdown('hadits')">
-              <div class="dropdown-content-icon">
-                <img src="assets/img/hadits.png" alt="Hadits Icon">
-                <span>Potongan Hadits</span>
-              </div>
-            </div>
-            <div class="bubble-option" onclick="showDropdown('quotes')">
-              <div class="dropdown-content-icon">
-                <img src="assets/img/ustad.png" alt="Ustadz Icon">
-                <span>Quotes Ustadz</span>
-              </div>
-            </div>
-          </div>
+<div id="response-section" class="response-section">
+  <h4 class="text-center">Pilih jenis nasihat:</h4>
+  <div class="text-center mt-3 d-flex flex-column align-items-center gap-2">
 
-          <div id="quran" class="dropdown-content" style="display:none">
-            <strong>QS. Al-Insyirah: 5-6</strong><br>
-            "Karena sesungguhnya sesudah kesulitan itu ada kemudahan. Sesungguhnya sesudah kesulitan itu ada kemudahan."
-            <br><em>(Terjemahan: Allah memberi tahu bahwa kesulitan akan berlalu dan datang kemudahan berkali-kali)</em>
-          </div>
-
-          <div id="hadits" class="dropdown-content" style="display:none">
-            <strong>HR. Tirmidzi</strong><br>
-            "Ketahuilah, sesungguhnya dalam jasad itu ada segumpal daging, jika ia baik maka baiklah seluruh jasadnya... itulah hati."
-            <br><em>(Artinya: jagalah hati agar tetap bersih meski dalam kondisi kecewa)</em>
-          </div>
-
-          <div id="quotes" class="dropdown-content" style="display:none">
-            <strong>Ustadz Hanan Attaki</strong><br>
-            "Jangan tunggu bahagia baru bersyukur. Tapi bersyukurlah, maka kamu akan bahagia."
-          </div>
+    <div class="response-option">
+      <div class="bubble-option" onclick="showDropdown('quran')">
+        <div class="dropdown-content-icon">
+          <img src="assets/img/quran.png" alt="Quran Icon">
+          <span>Potongan Al-Qur'an</span>
         </div>
       </div>
+      <div id="quran" class="dropdown-content mt-2" style="display:none">
+        <div class="close-btn" onclick="hideDropdown('quran')">▲</div>
+        <div class="dropdown-inner">
+          <strong>QS. Al-Insyirah: 5-6</strong><br>
+          "Karena sesungguhnya sesudah kesulitan itu ada kemudahan. Sesungguhnya sesudah kesulitan itu ada kemudahan."
+          <br><em>(Terjemahan: Allah memberi tahu bahwa kesulitan akan berlalu dan datang kemudahan berkali-kali)</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="response-option">
+      <div class="bubble-option" onclick="showDropdown('hadits')">
+        <div class="dropdown-content-icon">
+          <img src="assets/img/hadits.png" alt="Hadits Icon">
+          <span>Potongan Hadits</span>
+        </div>
+      </div>
+      <div id="hadits" class="dropdown-content mt-2" style="display:none">
+        <div class="close-btn" onclick="hideDropdown('hadits')">▲</div>
+        <div class="dropdown-inner">
+          <strong>HR. Tirmidzi</strong><br>
+          "Ketahuilah, sesungguhnya dalam jasad itu ada segumpal daging, jika ia baik maka baiklah seluruh jasadnya... itulah hati."
+          <br><em>(Artinya: jagalah hati agar tetap bersih meski dalam kondisi kecewa)</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="response-option">
+      <div class="bubble-option" onclick="showDropdown('quotes')">
+        <div class="dropdown-content-icon">
+          <img src="assets/img/ustad.png" alt="Ustadz Icon">
+          <span>Quotes Ustadz</span>
+        </div>
+      </div>
+      <div id="quotes" class="dropdown-content mt-2" style="display:none">
+        <div class="close-btn" onclick="hideDropdown('quotes')">▲</div>
+        <div class="dropdown-inner">
+          <strong>Ustadz Hanan Attaki</strong><br>
+          "Jangan tunggu bahagia baru bersyukur. Tapi bersyukurlah, maka kamu akan bahagia."
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
     </section>
 
     <!-- Faq Section -->
@@ -254,29 +289,29 @@
     function showResponses(event) {
       event.stopPropagation();
       document.getElementById('response-section').style.display = 'block';
-      document.getElementById('quran').style.display = 'none';
-      document.getElementById('hadits').style.display = 'none';
-      document.getElementById('quotes').style.display = 'none';
+      ['quran','hadits','quotes'].forEach(id => document.getElementById(id).style.display = 'none');
     }
 
     function showDropdown(id) {
-      ['quran', 'hadits', 'quotes'].forEach(section => {
-        document.getElementById(section).style.display = 'none';
+      ['quran','hadits','quotes'].forEach(sec => {
+        if (sec !== id) document.getElementById(sec).style.display = 'none';
       });
       document.getElementById(id).style.display = 'block';
     }
 
+    function hideDropdown(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
     function resetMood(event) {
-      const trackq = document.getElementById('trackq');
+      const trackq = document.getElementById('mood');
       if (!trackq.contains(event.target)) return;
       if (event.target.closest('.mood-option') || event.target.closest('.bubble-option') || event.target.closest('.dropdown-content')) return;
 
       document.querySelectorAll('.mood-option').forEach(opt => opt.classList.remove('active'));
       document.getElementById('mood-suboptions').innerHTML = '';
       document.getElementById('response-section').style.display = 'none';
-      document.getElementById('quran').style.display = 'none';
-      document.getElementById('hadits').style.display = 'none';
-      document.getElementById('quotes').style.display = 'none';
+      ['quran','hadits','quotes'].forEach(id => document.getElementById(id).style.display = 'none');
     }
   </script>
 </body>
