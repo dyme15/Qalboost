@@ -64,13 +64,8 @@
             <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
           </div>
           <div class="col-lg-6  d-flex flex-column justify-content-center text-center text-md-start" data-aos="fade-in">
-            <h2>
-  <span style="color: #004E89;">Qal</span><span style="color: #FF6B35;">Boost</span>
-</h2>
-            <p style="text-align: justify;">Setiap hati punya rasa. Kadang tenang, kadang gelisah.
-Qalboost bantu kamu mengenali emosi dan meresponnya dengan nasihat Islami di setiap harimu.
-Sederhana, reflektif, dan penuh makna.
-</p>
+            <h2><span style="color: #004E89;">Qal</span><span style="color: #FF6B35;">Boost</span></h2>
+            <p style="text-align: justify;">Setiap hati punya rasa. Kadang tenang, kadang gelisah.Qalboost bantu kamu mengenali emosi dan meresponnya dengan nasihat Islami di setiap harimu. Sederhana, reflektif, dan penuh makna.</p>
             <div class="d-flex mt-4 justify-content-center justify-content-md-start">
               <a href="qchecker.html" class="download-btn"></i> <span>Cek Qalbu-mu</span></a>
               <!-- <a href="#" class="download-btn"><i class="bi bi-apple"></i> <span>App Store</span></a> -->
@@ -81,7 +76,7 @@ Sederhana, reflektif, dan penuh makna.
     </section><!-- /Hero Section -->
     </section><!-- /About Section -->
 
-    <!-- Feature Details Section -->
+    <!-- Statistik Survey Section -->
     <section id="statistik" class="feature-details section">
 
       <div class="container">
@@ -100,18 +95,25 @@ Sederhana, reflektif, dan penuh makna.
               <p class="fst-italic" style="text-align: justify;">Berdasarkan hasil survei Jakpat, mood swing menjadi gangguan mental yang paling banyak dialami dalam 6 bulan terakhir. Hal ini sebagaimana dinyatakan oleh 61% responden gen Z yang berpartisipasi dalam survei tersebut. Sebagaimana diketahui, mood swing adalah kondisi terjadinya perubahan suasana hati secara cepat dan drastis. Selain mood swing, ada juga yang mengalami gangguan tidur, yakni sebanyak 54% responden gen Z.</p>
               <p class="fst-italic" style="text-align: justify;">Lalu, sebanyak 38% responden gen Z mengalami gangguan kontrol impuls atau impulse control issues. Gangguan kontrol impuls adalah kondisi ketika seseorang tidak bisa mengendalikan impuls dan perilakunya. Gangguan ini biasanya dialami oleh seseorang saat sedang merasa emosi dan tidak dapat mengelola emosi serta perilakunya. Ada pula gangguan kesehatan mental berupa gangguan kecemasan atau anxiety yang dialami oleh 37% responden gen Z.</p>
               <p class="fst-italic" style="text-align: justify;">Kemudian, sebanyak 29% responden gen Z menyatakan mengalami trauma dalam 6 bulan terakhir. Selanjutnya ada 24% responden yang mengalami PTSD (post-traumatic stress disorder). PTSD ini merupakan gangguan stres pascatrauma yang terjadi setelah seseorang mengalami atau menyaksikan peristiwa traumatis.</p>
-              <p class="fst-italic" style="text-align: justify;">Terakhir, ada 19% responden mengalami OCD (obsessive-compulsive disorder). OCD merupakan gangguan kesehatan mental yang membuat pengidapnya mempunyai pemikiran dan dorongan yang tidak bisa dikontrol yang sifatnya berulang (obsesi) serta munculnya perilaku (paksaan) kompulsif. Sebagai informasi, survei ini Survei ini memiliki tingkat toleransi kesalahan atau margin of error di bawah 5%. <strong>Source: https://www.rri.co.id/kesehatan/1293340/masalah-kesehatan-mental-yang-rentan-dialami-gen-z</strong></p>
+              <p class="fst-italic" style="text-align: justify;">Terakhir, ada 19% responden mengalami OCD (obsessive-compulsive disorder). OCD merupakan gangguan kesehatan mental yang membuat pengidapnya mempunyai pemikiran dan dorongan yang tidak bisa dikontrol yang sifatnya berulang (obsesi) serta munculnya perilaku (paksaan) kompulsif. Sebagai informasi, survei ini Survei ini memiliki tingkat toleransi kesalahan atau margin of error di bawah 5%. <strong>Source: <a href="https://www.rri.co.id/kesehatan/1293340/masalah-kesehatan-mental-yang-rentan-dialami-gen-z" onabort="" target="_blank"> RRI.co.id - Masalah Kesehatan Mental Gen Z</a></strong></p>
+          <!--Diagram-->
+          <div class="chart-container">
+            <h2>Survei Kesehatan Mental Gen Z (6 Bulan Terakhir)</h2>
+            <canvas id="mentalHealthChart"></canvas>
+             <p class="source">
+              Sumber: <a href="https://www.rri.co.id/kesehatan/1293340/masalah-kesehatan-mental-yang-rentan-dialami-gen-z" target="_blank"> RRI.co.id - Masalah Kesehatan Mental Gen Z</a></p>
+            </div>
           </div>
-        </div><!-- Features Item -->
-    </section><!-- /Feature Details Section -->
-    <!-- Testimonials Section -->
+        </div>
+    </section>
+    <!-- Artikel Section -->
     <section id="artikel" class="testimonials section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Artikel</h2>
         <p>
-          Artikel seputar <i><b>Kesehatan Mental/Mood Swing</b></i> Gen Z yang relevan:
+          Artikel lainnya seputar <i><b>Kesehatan Mental/Mood Swing</b></i> Gen Z yang relevan:
         </p>
       </div><!-- End Section Title -->
 
@@ -228,46 +230,6 @@ Sederhana, reflektif, dan penuh makna.
 
     </section><!-- /Testimonials Section -->
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery section">
-      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "centeredSlides": true,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 0
-                },
-                "768": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 30
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 30
-                },
-                "1200": {
-                  "slidesPerView": 7,
-                  "spaceBetween": 30
-                }
-              }
-            }
-          </script>
-
     <!-- Faq Section -->
     <section id="faq" class="faq section light-background">
 
@@ -278,13 +240,9 @@ Sederhana, reflektif, dan penuh makna.
       </div><!-- End Section Title -->
 
       <div class="container">
-
         <div class="row justify-content-center">
-
           <div class="col-lg-8">
-
             <div class="faq-container">
-
               <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3>Apa itu Platform QalBoost?</h3>
@@ -329,22 +287,16 @@ Sederhana, reflektif, dan penuh makna.
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </section><!-- /Faq Section -->
 
+    <section style="background-color: #FF6B35; padding: 1px; font-style: oblique;">
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">QalBoost - Setiap rasa ada tempatnya dan ada nasihatnya</strong></p> <span><p>Universitas Islam Negeri Sumatra Utara Medan 2025</span></p>
-    </div>
-
-  </footer>
+      <p style="color: white;">© <span style="color: white;">Copyright</span> <strong class="px-1 sitename" style="color: white;">QalBoost - KD2</strong></p> <span style="color: white;"><p>Universitas Islam Negeri Sumatra Utara Medan 2025</span></p>
+    </div> </section>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -359,7 +311,8 @@ Sederhana, reflektif, dan penuh makna.
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-  <!-- Main JS File -->
+  <!-- JS File -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>

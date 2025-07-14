@@ -91,7 +91,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 80px;
+  max-height: 70px;
   margin-right: 8px;
 }
 
@@ -193,7 +193,6 @@ h6 {
   }
 
   .navmenu li:hover>a,
-  .navmenu .active,
   .navmenu .active:focus {
     color: #004e89;
   }
@@ -391,7 +390,7 @@ h6 {
   font-size: 14px;
   position: relative;
 }
-
+/* hapus aja, ini komponen send message sama social media icon
 .footer .footer-newsletter {
   background-color: color-mix(in srgb, var(--default-color), transparent 97%);
   padding: 50px 0;
@@ -422,7 +421,7 @@ h6 {
 .footer .social-links a:hover {
   color: var(--accent-color);
   border-color: var(--accent-color);
-}
+} */
 
 .footer h4 {
   font-size: 16px;
@@ -507,7 +506,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background-color: var(--accent-color);
+  background-color: #1a659e;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -765,56 +764,39 @@ section,
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Gallery Section
---------------------------------------------------------------*/
-.gallery {
-  overflow: hidden;
+/*Diagram Session*/
+.chart-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.gallery .swiper-wrapper {
-  height: auto;
-}
-
-.gallery .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.gallery .swiper-pagination .swiper-pagination-bullet {
-  background-color: var(--background-color);
-  border: 1px solid var(--accent-color);
-  width: 12px;
-  height: 12px;
-  opacity: 1;
-}
-
-.gallery .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
-
-.gallery .swiper-slide-active {
+.chart-container h2 {
   text-align: center;
+  margin-bottom: 30px;
+  color: #333;
 }
 
-@media (min-width: 992px) {
-  .gallery .swiper-wrapper {
-    padding: 60px 0;
-  }
+.chart-container .source {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
 
-  .gallery .swiper-slide-active {
-    background: var(--background-color);
-    border: 6px solid var(--accent-color);
-    padding: 4px;
-    z-index: 1;
-    transform: scale(1.2);
-    border-radius: 25px;
-    transition: none;
-  }
+.chart-container .source a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.chart-container .source a:hover {
+  text-decoration: underline;
 }
 
 /*--------------------------------------------------------------
-# Testimonials Section
+# Artikel Section
 --------------------------------------------------------------*/
 .testimonials .testimonial-wrap {
   padding-left: 50px;
@@ -902,9 +884,6 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
-# Pricing Section
---------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Faq Section
 --------------------------------------------------------------*/

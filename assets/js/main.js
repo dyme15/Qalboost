@@ -170,3 +170,62 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+/* Diagram */
+const ctx = document.getElementById('mentalHealthChart').getContext('2d');
+
+const mentalHealthChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: [
+      'Mood Swing',
+      'Gangguan Tidur',
+      'Impulse Control',
+      'Kecemasan (Anxiety)',
+      'Trauma',
+      'PTSD',
+      'OCD'
+    ],
+    datasets: [{
+      label: 'Persentase Responden (%)',
+      data: [61, 54, 38, 37, 29, 24, 19],
+      backgroundColor: [
+        '#FF6384',
+        '#36A2EB',
+        '#FFCE56',
+        '#4BC0C0',
+        '#9966FF',
+        '#FF9F40',
+        '#C9CBCF'
+      ],
+      borderRadius: 8
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: context => `${context.parsed.y}% dari Gen Z`
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 70,
+        title: {
+          display: true,
+          text: 'Persentase (%)'
+        }
+      },
+      x: {
+        title: {
+          display: true,
+          text: 'Jenis Gangguan Mental'
+        }
+      }
+    }
+  }
+});
