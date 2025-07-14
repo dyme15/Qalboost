@@ -349,6 +349,28 @@ h6 {
     background-color: rgba(33, 37, 41, 0.1);
   }
 
+.header .logo img {
+  max-height: 40px;
+  margin-right: 4px;
+}
+
+.header .btn-getstarted,
+.header .btn-getstarted:focus {
+  color: var(--contrast-color);
+  background: hsl(16, 100%, 61%);
+  font-size: 5px;
+  padding: 6px 18px;
+  margin: 0 0 0 15px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.header .btn-getstarted:hover,
+.header .btn-getstarted:focus:hover {
+  color: var(--contrast-color);
+  background: #004e89;
+}
+
   .navmenu .dropdown>.dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
@@ -691,7 +713,7 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-/*.about ul {
+.about ul {
   list-style: none;
   padding: 0;
 }
@@ -736,7 +758,8 @@ section,
 
 .about .read-more:hover i {
   transform: translate(5px, 0);
-} */
+}
+
 
 /*--------------------------------------------------------------
 # Feature Details Section
@@ -982,3 +1005,5 @@ section,
 .faq .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
 }
+
+
