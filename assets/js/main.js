@@ -224,6 +224,13 @@ const mentalHealthChart = new Chart(ctx, {
         title: {
           display: true,
           text: 'Jenis Gangguan Mental'
+        },
+        ticks: {
+          maxRotation: 0,
+          minRotation: 0,
+          font: {
+            size: 8.5
+          }
         }
       }
     }

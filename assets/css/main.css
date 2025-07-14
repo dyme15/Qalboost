@@ -691,7 +691,7 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about ul {
+/*.about ul {
   list-style: none;
   padding: 0;
 }
@@ -736,8 +736,7 @@ section,
 
 .about .read-more:hover i {
   transform: translate(5px, 0);
-}
-
+} */
 
 /*--------------------------------------------------------------
 # Feature Details Section
@@ -983,5 +982,3 @@ section,
 .faq .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
 }
-
-
