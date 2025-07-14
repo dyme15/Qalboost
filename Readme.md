@@ -1,7 +1,7 @@
 # 🌿 Qalboost – Mood Checker Islami
 
 **Kategori:** Islamic Apps/Web & Edutech  
-**Tim:** KD@  
+**Tim:** KD2  
 **Anggota:** 3 Orang
 
 ---
