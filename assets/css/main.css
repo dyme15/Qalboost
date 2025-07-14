@@ -228,8 +228,8 @@ h6 {
 /* Navmenu mobile */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 28px;
+    color: orange;
+    font-size: 20px;
     line-height: 0;
     margin-right: 10px;
     cursor: pointer;
@@ -249,16 +249,17 @@ h6 {
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
+    background-color: #ffffff; /* Putih solid */
+    color: #212529; /* Teks gelap */
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
   }
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-dropdown-color);
+    color: #212529;
     padding: 10px 20px;
     font-family: var(--nav-font);
     font-size: 17px;
@@ -294,7 +295,8 @@ h6 {
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
+    color: #FF6B35; /* Hover dan active highlight */
+    background-color: rgba(255, 107, 53, 0.1);
   }
 
   .navmenu .active i,
@@ -310,31 +312,30 @@ h6 {
     z-index: 99;
     padding: 10px 0;
     margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
+    background-color: #f8f9fa;
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     box-shadow: none;
     transition: all 0.5s ease-in-out;
   }
 
   .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
+    background-color: rgba(33, 37, 41, 0.888);
   }
 
-.header .logo img {
-  max-height: 40px;
-  margin-right: 4px;
-}
+  .header .logo img {
+    max-height: 40px;
+    margin-right: 4px;
+  }
 
-.header .btn-getstarted,
-.header .btn-getstarted:focus {
-  display: none;           /* Sembunyikan elemen sepenuhnya */
-  pointer-events: none;    /* Nonaktifkan klik (jika tetap tampil) */
-  opacity: 0;              /* Pastikan transparan */
-  visibility: hidden;      /* Alternatif tambahan */
-}
+  .header .btn-getstarted,
+  .header .btn-getstarted:focus {
+    display: none;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+  }
 
-
-  .navmenu .dropdown>.dropdown-active {
+  .navmenu .dropdown > .dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
@@ -353,22 +354,38 @@ h6 {
     z-index: 9999;
   }
 
-#home {
-  padding-top: 30px; /* Atur sesuai kebutuhan, misalnya 0px, 20px, dst */
-}
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.6); /* backdrop lebih gelap */
+    transition: 0.3s;
+    z-index: 9996;
+  }
 
-#statistik {
-  padding-top: 20px; /* Atur sesuai kebutuhan, misalnya 0px, 20px, dst */
-}
+  .mobile-nav-active .navmenu > ul {
+    display: block;
+    background-color: #ffffff; /* putih solid */
+    border-radius: 8px;
+    padding: 15px 0;
+  }
 
-.col-md-20 h3 {
-  font-size: 20px; /* Ukuran judul bisa dikecilkan lagi sesuai keinginan */
-}
+  #home {
+    padding-top: 30px;
+  }
 
-.col-md-20 p {
-  font-size: 0.7rem; /* Ukuran paragraf */
-  line-height: 1.6;  /* Opsional: untuk keterbacaan lebih baik */
-}
+  #statistik {
+    padding-top: 20px;
+  }
+
+  .col-md-20 h3 {
+    font-size: 20px;
+  }
+
+  .col-md-20 p {
+    font-size: 0.7rem;
+    line-height: 1.6;
+  }
+
 
   .mobile-nav-active .navmenu {
     position: fixed;
