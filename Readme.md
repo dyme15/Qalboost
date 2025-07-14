@@ -1,4 +1,4 @@
-# 🌿 Qalboost – Mood Checker Islami
+# Qalboost – Mood Checker Islami
 
 **Kategori:** Islamic Apps/Web & Edutech  
 **Tim:** KD2  
@@ -13,7 +13,7 @@ Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang 
 
 ---
 
-## 💡 Fitur Utama
+## Fitur Utama
 
 - ✅ Mood checker harian
 - ✅ Respons Islami berdasarkan kondisi emosi atau mood
@@ -21,7 +21,7 @@ Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang 
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## Teknologi yang Digunakan
 
 - **Frontend:** HTML, CSS, JavaScript  
 - **Data Mapping:** JSON lokal  
@@ -29,7 +29,7 @@ Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang 
 
 ---
 
-## ▶️ Cara Menjalankan Aplikasi
+## Cara Menjalankan Aplikasi
 
 1. Download semua file di repositori ini.
 2. Buka `index.html` menggunakan browser (Chrome/Firefox).
@@ -37,7 +37,7 @@ Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang 
 
 ---
 
-## 🎯 Tujuan & Manfaat
+## Tujuan & Manfaat
 
 - Membantu pengguna lebih sadar terhadap emosinya dan bagaimana cara meredakannya
 - Menyediakan alternatif healing berbasis iman
