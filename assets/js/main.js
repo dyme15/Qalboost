@@ -2,7 +2,7 @@
   "use strict";
 
   /**
-   * Apply .scrolled class to the body as the page is scrolled down
+   * Menambahkan class .scrolled ke elemen body saat halaman digulir ke bawah.
    */
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
@@ -15,7 +15,7 @@
   window.addEventListener('load', toggleScrolled);
 
   /**
-   * Mobile nav toggle
+   * Tombol navigasi mobile (untuk buka/tutup menu)
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
@@ -27,7 +27,7 @@
   mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 
   /**
-   * Hide mobile nav on same-page/hash links
+   * "Sembunyikan menu navigasi mobile jika link yang diklik adalah tautan dalam halaman
    */
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
@@ -39,7 +39,7 @@
   });
 
   /**
-   * Toggle mobile nav dropdowns
+   * Membuka atau menutup dropdown pada menu navigasi mobile.
    */
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
     navmenu.addEventListener('click', function(e) {
@@ -61,7 +61,7 @@
   }
 
   /**
-   * Scroll top button
+   *Tombol untuk kembali ke atas halaman (scroll ke atas)
    */
   let scrollTop = document.querySelector('.scroll-top');
 
@@ -82,7 +82,7 @@
   document.addEventListener('scroll', toggleScrollTop);
 
   /**
-   * Animation on scroll function and init
+   * Menginisialisasi animasi scroll saat halaman dimuat.
    */
   function aosInit() {
     AOS.init({
@@ -95,7 +95,7 @@
   window.addEventListener('load', aosInit);
 
   /**
-   * Init swiper sliders
+   *Menjalankan/menyiapkan slider Swiper
    */
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
@@ -114,7 +114,7 @@
   window.addEventListener("load", initSwiper);
 
   /**
-   * Initiate glightbox
+   * Mengaktifkan fitur popup
    */
   const glightbox = GLightbox({
     selector: '.glightbox'
@@ -130,7 +130,7 @@
   });
 
   /**
-   * Correct scrolling position upon page load for URLs containing hash links.
+   * Memastikan scrolling otomatis ke elemen dengan hash di URL berjalan dengan benar
    */
   window.addEventListener('load', function(e) {
     if (window.location.hash) {
@@ -148,7 +148,7 @@
   });
 
   /**
-   * Navmenu Scrollspy
+   * Scrollspy untuk menu navigasi
    */
   let navmenulinks = document.querySelectorAll('.navmenu a');
 
