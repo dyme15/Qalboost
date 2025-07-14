@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>QalBoost - Q-Checker</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .mood-option {
+      font-size: 3rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: inline-block;
+      position: relative;
+    }
+    .mood-option:hover,
+    .mood-option.active {
+      transform: scale(1.3);
+    }
+    .mood-option[data-mood="good"]::before {
+      content: '🙂';
+    }
+    .mood-option[data-mood="bad"]::before {
+      content: '🙁';
+    }
+    .mood-option[data-mood="good"].active::before {
+      content: '😄';
+    }
+    .mood-option[data-mood="bad"].active::before {
+      content: '😢';
+    }
+
+    .bubble-option {
+      background-color: #f0f0f0;
+      padding: 10px 20px;
+      border-radius: 25px;
+      margin: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.4s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: riseUp 0.5s forwards;
+      display: inline-block;
+    }
+
+    @keyframes riseUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bubble-option.bubble-good:hover,
+.bubble-option.bubble-good.active {
+  background-color: #FF6B35; /* Orange */
+  color: #ffffff;
+}
+
+.bubble-option.bubble-bad:hover,
+.bubble-option.bubble-bad.active {
+  background-color: #1A659E; /* Biru */
+  color: #ffffff;
+}
+
+    .response-section {
+      margin-top: 20px;
+      display: none;
+    }
+
+    .dropdown-content {
+      background: #fafafa;
+      border-left: 3px solid #ccc;
+      border-radius: 5px;
+      padding: 15px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+
+    .dropdown-content.show {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .dropdown-content-icon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dropdown-content-icon img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body class="qchecker-page" onclick="resetMood(event)">
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/logo.png" alt="QalBoost Logo">
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#statistik">Statistik</a></li>
+          <li><a href="index.html#artikel">Artikel</a></li>
+          <li><a href="#faq">F.A.Q</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <a class="btn-getstarted" href="qchecker.html#mood">Q-Checker</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Section Q-Checker -->
+    <section id="mood" class="section" data-aos="fade-up" style="margin-bottom: 17.8vh;">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><span style="color: #004E89;"><br>Q-</span><span style="color: #FF6B35;">Checker</span></h2>
+          <p>Pilih mood kamu hari ini</p>
+        </div>
+
+        <div class="text-center">
+          <span class="mood-option" data-mood="good" onclick="setMoodActive(this, 'good', event)"></span>
+          <span class="mood-option" data-mood="bad" onclick="setMoodActive(this, 'bad', event)"></span>
+        </div>
+
+        <div id="mood-suboptions" class="text-center mt-4"></div>
+
+        <div id="response-section" class="response-section">
+          <h4 class="text-center"><br>Pilih jenis nasihat:</h4>
+          <div class="text-center mt-3 d-flex flex-column align-items-center gap-2">
+
+            <div class="response-option">
+              <div class="bubble-option" onclick="toggleDropdown('quran')">
+                <div class="dropdown-content-icon">
+                  <img src="assets/img/quran.png" alt="Quran Icon">
+                  <span>Potongan Al-Qur'an</span>
+                </div>
+              </div>
+              <div id="quran" class="dropdown-content">
+                <div class="close-btn" onclick="toggleDropdown('quran')">▲</div>
+                <div class="dropdown-inner"></div>
+              </div>
+            </div>
+
+            <div class="response-option">
+              <div class="bubble-option" onclick="toggleDropdown('hadits')">
+                <div class="dropdown-content-icon">
+                  <img src="assets/img/hadits.png" alt="Hadits Icon">
+                  <span>Potongan Hadits</span>
+                </div>
+              </div>
+              <div id="hadits" class="dropdown-content">
+                <div class="close-btn" onclick="toggleDropdown('hadits')">▲</div>
+                <div class="dropdown-inner"></div>
+              </div>
+            </div>
+
+            <div class="response-option">
+              <div class="bubble-option" onclick="toggleDropdown('quotes')">
+                <div class="dropdown-content-icon">
+                  <img src="assets/img/ustad.png" alt="Ustadz Icon">
+                  <span>Quotes Ustadz</span>
+                </div>
+              </div>
+              <div id="quotes" class="dropdown-content">
+                <div class="close-btn" onclick="toggleDropdown('quotes')">▲</div>
+                <div class="dropdown-inner">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- F.A.Q section tetap (tidak diubah) -->
+    <!-- Faq Section -->
+    <section id="faq" class="faq section light-background">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+        <p>Beberapa pertanyaan umum yang mungkin ditanyakan:</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="faq-container">
+              <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Apa itu Platform QalBoost?</h3>
+                <div class="faq-content">
+                  <p style="text-align: justify;">Qalboost adalah platform refleksi digital yang membantu pengguna mengenali suasana hati dan memberikan respons berupa nasihat Islami seperti ayat, hadist, atau kutipan bijak. Dengan pendekatan yang sederhana dan interaktif, Qalboost hadir sebagai teman harian untuk menjaga ketenangan hati dan memperkuat iman, khususnya di kalangan Gen Z.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Apa yang melatarbelakangi terciptanya QalBoost?</h3>
+                <div class="faq-content">
+                  <p style="text-align: justify;">Banyak anak muda mengalami perubahan suasana hati yang cepat, cemas berlebihan, dan sulit menenangkan diri karena kesehatan mental yang terganggu. Namun, tidak semua punya tempat nyaman untuk mencurahkan perasaan atau berbicara kepada orang lain tentang perasaannya. Qalboost dibangun karena kami percaya bahwa setiap emosi layak dipahami dan dalam Islam, tiap rasa punya tempat dan nasihatnya. Inilah cara kami menghubungkan emotional awareness dengan nilai-nilai Islami secara praktis.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Bagaimana potensi pengembangan dan dampak ke depan dari platform ini?</h3>
+                <div class="faq-content">
+                  <p style="text-align: justify;">Ke depannya, Qalboost berpotensi dikembangkan menjadi aplikasi mobile yang dilengkapi fitur AI untuk nasihat personal, komunitas refleksi harian, habit tracker ibadah, hingga mood diary yang interaktif. Platform ini juga bisa disisipkan mini-games edukatif seputar mental health dalam perspektif Islami. Dengan pengembangan tersebut, Qalboost dapat membentuk budaya self-care Islami dan menjadi teman hijrah digital yang relevan bagi remaja dan dewasa muda.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Dampak apa yang dapat dirasakan dari platform ini?</h3>
+                <div class="faq-content">
+                  <p style="text-align: justify;">Qalboost menawarkan fitur mood checker harian yang sederhana, disertai dengan respons Islami yang relevan dengan suasana hati pengguna, bukan sekadar kutipan acak. Platform ini menjadi ruang refleksi privat untuk mengenali emosi dan meluruskan niat, sekaligus menghadirkan alternatif healing yang ringan dan bermakna, berdasarkan Al-Qur'an dan Hadits atau Quotes Ustadz sebagai penyemangat, bukan hiburan semata.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Siapa yang dapat menggunakan platform ini?</h3>
+                <div class="faq-content">
+                  <p style="text-align: justify;">Qalboost dirancang untuk Gen Z Muslim yang mencari ketenangan di tengah dinamika hidup, serta siapa pun yang ingin memahami emosi melalui pendekatan Islami secara sederhana dan praktis. Cocok pula bagi mereka yang sedang belajar hijrah, belajar sabar, atau sekedar butuh ruang sederhana untuk mendekat kepada Allah sembari membaca Al-Qur'an dan Hadits atau Quotes Ustadz yang dapat membuat perasaan menjadi lebih baik. Tanpa batasan, selama kamu ingin mengenal diri dan memperbaiki hati, Qalboost siap jadi temanmu.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- /Faq Section -->
+    </section>
+
+    <section style="background-color: #FF6B35; padding: 1px;">
+  <div class="container copyright text-center mt-4">
+    <p style="color: white; font-style: oblique;">
+      © <span style="color: white; font-style: oblique;">Copyright</span>
+      <strong class="px-1 sitename" style="color: white; font-style: oblique;">QalBoost - KD2</strong>
+    </p>
+
+    <div style="display: flex; justify-content: center; align-items: center; gap: 2px; color: white;">
+      <img src="assets/img/uinsu.png" width="40" height="40" alt="uinsu" style="margin-bottom: 10px;">
+      <span>Universitas Islam Negeri Sumatra Utara Medan 2025</span>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom Script -->
+  <script>
+    function setMoodActive(el, mood, event) {
+  event.stopPropagation();
+  const alreadyActive = el.classList.contains('active');
+
+  // Reset semua tampilan
+  document.querySelectorAll('.mood-option').forEach(opt => opt.classList.remove('active'));
+  document.getElementById('mood-suboptions').innerHTML = '';
+  document.getElementById('response-section').style.display = 'none';
+  ['quran', 'hadits', 'quotes'].forEach(id => document.getElementById(id).classList.remove('show'));
+
+  // Jika sebelumnya belum aktif, tampilkan mood options
+  if (!alreadyActive) {
+    el.classList.add('active');
+    showMoodOptions(mood);
+  }
+}
+
+    function showMoodOptions(mood) {
+  const sub = document.getElementById('mood-suboptions');
+  const response = document.getElementById('response-section');
+  response.style.display = 'none';
+
+  let options = '';
+  const moodClass = mood === 'good' ? 'bubble-good' : 'bubble-bad';
+
+  if (mood === 'good') {
+    options = `
+      <div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Senang')">Senang</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Bahagia')">Bahagia</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Tenang')">Tenang</div>
+      </div>`;
+  } else {
+    options = `
+      <div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Kecewa')">Kecewa</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Marah')">Marah</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Sedih')">Sedih</div>
+      </div>`;
+  }
+
+  sub.innerHTML = options;
+}
+
+
+
+    function showResponses(event, mood, submood) {
+  event.stopPropagation();
+  const responseSection = document.getElementById('response-section');
+  responseSection.style.display = 'block';
+
+  const moodClass = mood === 'good' ? 'bubble-good' : 'bubble-bad';
+
+  document.querySelectorAll('#response-section .bubble-option').forEach(el => {
+    el.classList.remove('bubble-good', 'bubble-bad');
+    el.classList.add(moodClass);
+  });
+
+  // Set konten berdasarkan submood
+  const quran = document.querySelector('#quran .dropdown-inner');
+  const hadits = document.querySelector('#hadits .dropdown-inner');
+  const quotes = document.querySelector('#quotes .dropdown-inner');
+
+  if (submood === 'Senang') {
+  quran.innerHTML = `
+    <strong>QS. An-Najm: 43</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">وَأَنَّهُۥ هُوَ أَضْحَكَ وَأَبْكَىٰ</span>
+    "Dan Dia-lah yang menjadikan orang tertawa dan menangis."<br><em>(Allah menciptakan keceriaan dalam hati)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Muslim</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">مَنْ أَدْخَلَ السُّرُورَ عَلَى قَلْبِ مُؤْمِنٍ، فَقَدْ أَسْعَدَهُ ٱللَّهُ يَوْمَ ٱلْقِيَامَةِ</span>
+    "Orang yang memberi kebahagiaan kepada saudaranya, Allah akan memberinya kebahagiaan pada hari kiamat."<br><em>(Kebahagiaan itu berkah)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Adi Hidayat</strong><br><br>"Bahagia itu sederhana, ketika hati bersyukur dan jiwa tenang."`;
+}
+else if (submood === 'Bahagia') {
+  quran.innerHTML = `
+    <strong>QS. Yunus: 58</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">قُلْ بِفَضْلِ ٱللَّهِ وَبِرَحْمَتِهِۦ فَبِذَٰلِكَ فَلْيَفْرَحُوا۟</span>
+    "Katakanlah: Dengan karunia Allah dan rahmat-Nya, hendaklah dengan itu mereka bergembira."<br><em>(Bahagia karena rahmat-Nya)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Ahmad</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّ ٱللَّهَ يُحِبُّ ٱلْعَبْدَ ٱلشَّكُورَ</span>
+    "Sesungguhnya Allah menyukai hamba yang selalu bersyukur."<br><em>(Kebahagiaan lahir dari syukur)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Hanan Attaki</strong><br><br>"Jangan tunggu bahagia baru bersyukur. Tapi bersyukurlah, maka kamu akan bahagia."`;
+}
+else if (submood === 'Tenang') {
+  quran.innerHTML = `
+    <strong>QS. Ar-Ra’d: 28</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ</span>
+    "Ingatlah, hanya dengan mengingat Allah hati menjadi tenang."<br><em>(Sumber ketenangan sejati)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Bukhari</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّ الرِّفْقَ لَا يَكُونُ فِي شَيْءٍ إِلَّا زَانَهُ</span>
+    "Sesungguhnya kelembutan itu tidak berada pada sesuatu kecuali akan menghiasinya."<br><em>(Tenang dan lembut adalah bagian dari iman)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Salim A. Fillah</strong><br><br>"Tenanglah, karena takdir Allah selalu indah pada waktunya."`;
+}
+else if (submood === 'Kecewa') {
+  quran.innerHTML = `
+    <strong>QS. Al-Baqarah: 286</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا</span>
+    "Allah tidak membebani seseorang melainkan sesuai kesanggupannya."<br><em>(Kekecewaan juga punya batas dan makna)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Tirmidzi</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">... أَلَا وَهِيَ ٱلْقَلْبُ</span>
+    "Ketahuilah... sesungguhnya itu adalah hati."<br><em>(Jaga hati meski kecewa)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Felix Siauw</strong><br><br>"Allah tidak pernah mengecewakan hamba-Nya yang berharap penuh kepada-Nya."`;
+}
+else if (submood === 'Marah') {
+  quran.innerHTML = `
+    <strong>QS. Ali Imran: 134</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">وَٱلْكَٰظِمِينَ ٱلْغَيْظَ وَٱلْعَافِينَ عَنِ ٱلنَّاسِ</span>
+    "Dan orang-orang yang menahan amarahnya dan memaafkan (kesalahan) orang lain."<br><em>(Kendalikan amarah dengan iman)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Bukhari</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">لَيْسَ ٱلشَّدِيدُ بِٱلصُّرَعَةِ، إِنَّمَا ٱلشَّدِيدُ ٱلَّذِي يَمْلِكُ نَفْسَهُ عِندَ ٱلْغَضَبِ</span>
+    "Bukanlah orang kuat itu yang menang dalam pergulatan, tapi yang mampu menahan amarahnya."<br><em>(Marah itu ujian kekuatan jiwa)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Abdul Somad</strong><br><br>"Marah bukan tanda kekuatan, tapi kelemahan yang tak terkontrol."`;
+}
+else if (submood === 'Sedih') {
+  quran.innerHTML = `
+    <strong>QS. Yusuf: 87</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّهُۥ لَا يَيْـَٔسُ مِن رَّوْحِ ٱللَّهِ إِلَّا ٱلْقَوْمُ ٱلْكَٰفِرُونَ</span>
+    "Janganlah kamu berputus asa dari rahmat Allah."<br><em>(Kesedihan tak berarti akhir)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Bukhari</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِذَا أَحَبَّ ٱللَّهُ قَوْمًا ٱبْتَلَاهُمْ</span>
+    "Jika Allah mencintai suatu kaum, maka Dia mengujinya."<br><em>(Kesedihan adalah bentuk cinta Allah)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Badrussalam</strong><br><br>"Kesedihan hari ini adalah pelajaran untuk bahagia esok hari."`;
+}
+
+
+  // Tutup semua dropdown
+  ['quran', 'hadits', 'quotes'].forEach(id => document.getElementById(id).classList.remove('show'));
+}
+
+
+
+    function toggleDropdown(id) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.contains('show');
+      ['quran', 'hadits', 'quotes'].forEach(sec => document.getElementById(sec).classList.remove('show'));
+      if (!isOpen) el.classList.add('show');
+    }
+
+    function resetMood(event) {
+      const trackq = document.getElementById('mood');
+      if (!trackq.contains(event.target)) return;
+      if (event.target.closest('.mood-option') || event.target.closest('.bubble-option') || event.target.closest('.dropdown-content')) return;
+
+      document.querySelectorAll('.mood-option').forEach(opt => opt.classList.remove('active'));
+      document.getElementById('mood-suboptions').innerHTML = '';
+      document.getElementById('response-section').style.display = 'none';
+      ['quran', 'hadits', 'quotes'].forEach(id => document.getElementById(id).classList.remove('show'));
+    }
+  </script>
+</body>
+</html>
