@@ -562,37 +562,68 @@ section[style*="background-color: #1A659E"] div[style*="display: flex"] img {
 
 
 /* animasi loading sebelum masuk situs */
+/* Tampilkan loader penuh layar */
 #preloader {
   position: fixed;
   inset: 0;
   z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: hidePreloader 2.5s ease-out forwards;
 }
 
+/* Logo muncul dan animasi */
 #preloader:before {
   content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
+  display: block;
+  width: 120px;
+  height: 120px;
+  background: url('../img/komponen/favicon.png') no-repeat center center;
+  background-size: contain;
+  animation: logoZoom 1.2s ease-out forwards, moonSpin 2s linear infinite;
+  opacity: 0;
+  transform: scale(0.5);
 }
 
-@keyframes animate-preloader {
+/* Konten utama disembunyikan dulu */
+#main-content {
+  opacity: 0;
+  animation: showContent 2.6s ease forwards;
+  animation-delay: 2.5s;
+}
+
+/* Animasinya */
+@keyframes logoZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes moonSpin {
   0% {
-    transform: rotate(0deg);
+    transform: scale(1) rotate(0deg);
   }
-
   100% {
-    transform: rotate(360deg);
+    transform: scale(1) rotate(360deg);
   }
 }
+
+@keyframes hidePreloader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes showContent {
+  to {
+    opacity: 1;
+  }
+}
+
 
 /*
 # Scroll Top Button
@@ -1041,3 +1072,115 @@ section,
 .faq .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
 }
+
+
+/* Mood */
+.mood-option {
+      font-size: 3rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: inline-block;
+      position: relative;
+    }
+    .mood-option:hover,
+    .mood-option.active {
+      transform: scale(1.3);
+    }
+    .mood-option {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mood-option[data-mood="good"] {
+  background-image: url('../img/emoji/good.png');
+}
+.mood-option[data-mood="good"].active {
+  background-image: url('../img/emoji/senang.png');
+}
+
+.mood-option[data-mood="bad"] {
+  background-image: url('../img/emoji/bad.png');
+}
+.mood-option[data-mood="bad"].active {
+  background-image: url('../img/emoji/sedih.png');
+}
+    .bubble-option {
+      background-color: #f0f0f0;
+      padding: 10px 20px;
+      border-radius: 25px;
+      margin: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.4s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: riseUp 0.5s forwards;
+      display: inline-block;
+    }
+
+    @keyframes riseUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* Nasihat */
+    .bubble-option.bubble-good:hover,
+.bubble-option.bubble-good.active {
+  background-color: #FF6B35; /* Orange */
+  color: #ffffff;
+}
+
+.bubble-option.bubble-bad:hover,
+.bubble-option.bubble-bad.active {
+  background-color: #1A659E; /* Biru */
+  color: #ffffff;
+}
+
+    .response-section {
+      margin-top: 20px;
+      display: none;
+    }
+
+    .dropdown-content {
+      background: #fafafa;
+      border-left: 3px solid #ccc;
+      border-radius: 5px;
+      padding: 15px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+
+    .dropdown-content.show {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .dropdown-content-icon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dropdown-content-icon img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }

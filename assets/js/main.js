@@ -236,3 +236,168 @@ const mentalHealthChart = new Chart(ctx, {
     }
   }
 });
+
+  /**
+   * Q-Checker.
+   */
+function setMoodActive(el, mood, event) {
+  event.stopPropagation();
+  const alreadyActive = el.classList.contains('active');
+
+  // Reset semua tampilan
+  document.querySelectorAll('.mood-option').forEach(opt => opt.classList.remove('active'));
+  document.getElementById('mood-suboptions').innerHTML = '';
+  document.getElementById('response-section').style.display = 'none';
+  ['quran', 'hadits', 'quotes'].forEach(id => document.getElementById(id).classList.remove('show'));
+
+  // Jika sebelumnya belum aktif, tampilkan mood options
+  if (!alreadyActive) {
+    el.classList.add('active');
+    showMoodOptions(mood);
+  }
+}
+
+    function showMoodOptions(mood) {
+  const sub = document.getElementById('mood-suboptions');
+  const response = document.getElementById('response-section');
+  response.style.display = 'none';
+
+  let options = '';
+  const moodClass = mood === 'good' ? 'bubble-good' : 'bubble-bad';
+
+  if (mood === 'good') {
+    options = `
+      <div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Senang')">Senang</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Bahagia')">Bahagia</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Tenang')">Tenang</div>
+      </div>`;
+  } else {
+    options = `
+      <div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Kecewa')">Kecewa</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Marah')">Marah</div>
+        <div class="bubble-option ${moodClass}" onclick="showResponses(event, '${mood}', 'Sedih')">Sedih</div>
+      </div>`;
+  }
+
+  sub.innerHTML = options;
+}
+
+    function showResponses(event, mood, submood) {
+  event.stopPropagation();
+  const responseSection = document.getElementById('response-section');
+  responseSection.style.display = 'block';
+
+  const moodClass = mood === 'good' ? 'bubble-good' : 'bubble-bad';
+
+  document.querySelectorAll('#response-section .bubble-option').forEach(el => {
+    el.classList.remove('bubble-good', 'bubble-bad');
+    el.classList.add(moodClass);
+  });
+
+  // Set konten berdasarkan submood
+  const quran = document.querySelector('#quran .dropdown-inner');
+  const hadits = document.querySelector('#hadits .dropdown-inner');
+  const quotes = document.querySelector('#quotes .dropdown-inner');
+
+  if (submood === 'Senang') {
+  quran.innerHTML = `
+    <strong>QS. An-Najm: 43</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">وَأَنَّهُۥ هُوَ أَضْحَكَ وَأَبْكَىٰ</span>
+    "Dan Dia-lah yang menjadikan orang tertawa dan menangis."<br><em>(Allah menciptakan keceriaan dalam hati)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Muslim</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">مَنْ أَدْخَلَ السُّرُورَ عَلَى قَلْبِ مُؤْمِنٍ، فَقَدْ أَسْعَدَهُ ٱللَّهُ يَوْمَ ٱلْقِيَامَةِ</span>
+    "Orang yang memberi kebahagiaan kepada saudaranya,<br>Allah akan memberinya kebahagiaan pada hari kiamat."<br><em>(Kebahagiaan itu berkah)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Adi Hidayat</strong><br><br>"Bahagia itu sederhana, ketika hati bersyukur dan jiwa tenang."`;
+}
+else if (submood === 'Bahagia') {
+  quran.innerHTML = `
+    <strong>QS. Yunus: 58</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">قُلْ بِفَضْلِ ٱللَّهِ وَبِرَحْمَتِهِۦ فَبِذَٰلِكَ فَلْيَفْرَحُوا۟</span>
+    "Katakanlah: Dengan karunia Allah dan rahmat-Nya,<br>hendaklah dengan itu mereka bergembira."<br><em>(Bahagia karena rahmat-Nya)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Ahmad</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّ ٱللَّهَ يُحِبُّ ٱلْعَبْدَ ٱلشَّكُورَ</span>
+    "Sesungguhnya Allah menyukai hamba yang selalu bersyukur."<br><em>(Kebahagiaan lahir dari syukur)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Hanan Attaki</strong><br><br>"Jangan tunggu bahagia baru bersyukur.<br>Tapi bersyukurlah, maka kamu akan bahagia."`;
+}
+else if (submood === 'Tenang') {
+  quran.innerHTML = `
+    <strong>QS. Ar-Ra’d: 28</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ</span>
+    "Ingatlah, hanya dengan mengingat Allah hati menjadi tenang."<br><em>(Sumber ketenangan sejati)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Bukhari</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّ الرِّفْقَ لَا يَكُونُ فِي شَيْءٍ إِلَّا زَانَهُ</span>
+    "Sesungguhnya kelembutan itu tidak berada pada sesuatu kecuali akan menghiasinya."<br><em>(Tenang dan lembut adalah bagian dari iman)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Salim A. Fillah</strong><br><br>"Tenanglah, karena takdir Allah selalu indah pada waktunya."`;
+}
+else if (submood === 'Kecewa') {
+  quran.innerHTML = `
+    <strong>QS. Al-Baqarah: 286</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا</span>
+    "Allah tidak membebani seseorang melainkan sesuai kesanggupannya."<br><em>(Kekecewaan juga punya batas dan makna)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Muslim</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّ الشَّيْطَانَ يَحْضُرُ أَحَدَكُمْ عِنْدَ كُلِّ شَيْءٍ مِنْ شَأْنِهِ، حَتَّى يَحْضُرَهُ عِنْدَ طَعَامِهِ</span>
+    "Sesungguhnya setan mendatangi kalian dalam setiap keadaan kalian.<br>Sampai setan ikut hadir di makanan kalian"<br><em>(Jaga hati meski kecewa)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Felix Siauw</strong><br><br>"Allah tidak pernah mengecewakan hamba-Nya<br>yang berharap penuh kepada-Nya."`;
+}
+else if (submood === 'Marah') {
+  quran.innerHTML = `
+    <strong>QS. Ali Imran: 134</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">وَٱلْكَٰظِمِينَ ٱلْغَيْظَ وَٱلْعَافِينَ عَنِ ٱلنَّاسِ</span>
+    "Dan orang-orang yang menahan amarahnya dan memaafkan (kesalahan) orang lain."<br><em>(Kendalikan amarah dengan iman)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Bukhari</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">لَيْسَ ٱلشَّدِيدُ بِٱلصُّرَعَةِ، إِنَّمَا ٱلشَّدِيدُ ٱلَّذِي يَمْلِكُ نَفْسَهُ عِندَ ٱلْغَضَبِ</span>
+    "Bukanlah orang kuat itu yang menang dalam pergulatan,<br>tapi yang mampu menahan amarahnya."<br><em>(Marah itu ujian kekuatan jiwa)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Abdul Somad</strong><br><br>"Marah bukan tanda kekuatan, tapi kelemahan yang tak terkontrol."`;
+}
+else if (submood === 'Sedih') {
+  quran.innerHTML = `
+    <strong>QS. Ali Imran: 139</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">وَلَا تَهِنُوۡا وَ لَا تَحۡزَنُوۡا وَاَنۡتُمُ الۡاَعۡلَوۡنَ اِنۡ كُنۡتُمۡ مُّؤۡمِنِيۡنَ</span>
+    "Janganlah kamu bersikap lemah dan janganlah pula kamu bersedih hati,<br>padahal kamulah orang orang yang paling tinggi derajatnya jika kamu beriman."<br><em>(Kesedihan tak berarti akhir)</em>
+  `;
+  hadits.innerHTML = `
+    <strong>HR. Bukhari</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِذَا أَحَبَّ ٱللَّهُ قَوْمًا ٱبْتَلَاهُمْ</span>
+    "Jika Allah mencintai suatu kaum, maka Dia mengujinya."<br><em>(Kesedihan adalah bentuk cinta Allah)</em>
+  `;
+  quotes.innerHTML = `<strong>Ustadz Badrussalam</strong><br><br>"Kesedihan hari ini adalah pelajaran untuk bahagia esok hari."`;
+}
+
+  // Tutup semua dropdown
+  ['quran', 'hadits', 'quotes'].forEach(id => document.getElementById(id).classList.remove('show'));
+}
+
+    function toggleDropdown(id) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.contains('show');
+      ['quran', 'hadits', 'quotes'].forEach(sec => document.getElementById(sec).classList.remove('show'));
+      if (!isOpen) el.classList.add('show');
+    }
+
+    function resetMood(event) {
+      const trackq = document.getElementById('mood');
+      if (!trackq.contains(event.target)) return;
+      if (event.target.closest('.mood-option') || event.target.closest('.bubble-option') || event.target.closest('.dropdown-content')) return;
+
+      document.querySelectorAll('.mood-option').forEach(opt => opt.classList.remove('active'));
+      document.getElementById('mood-suboptions').innerHTML = '';
+      document.getElementById('response-section').style.display = 'none';
+      ['quran', 'hadits', 'quotes'].forEach(id => document.getElementById(id).classList.remove('show'));
+    }
