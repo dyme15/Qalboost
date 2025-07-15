@@ -14,7 +14,7 @@
 ## Deskripsi Singkat
 
 **Qalboost** adalah platform refleksi digital berbasis web yang praktis dan sederhana dimana dapat membantu pengguna mengenali suasana hati/mood dan mendapatkan nasihat Islami yang sesuai dengan kondisi hatinya, berupa ayat Al-Qur’an, hadis, atau kutipan motivatif dari ustadz terkemuka.  
-Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang healing harian sederhana untuk menjaga ketenangan hati dan memperkuat iman, khususnya bagi Gen Z. Harapannya, setelah rutin menggunakan platform ini, pengguna dapat memperbaiki mood dan menjaga kesehatan mental dengan pendekatan Islami sekaligus dapat menghafal ayat Al-Qur'an dan hadits yang relevan.
+Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang healing harian sederhana untuk menjaga ketenangan hati dan memperkuat iman, khususnya bagi Gen Z. Harapannya, setelah rutin dalam menggunakan platform ini, pengguna dapat memperbaiki mood dan menjaga kesehatan mental dengan pendekatan Islami sekaligus dapat menghafal ayat Al-Qur'an dan hadits yang relevan.
 
 ---
 
