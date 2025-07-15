@@ -37,8 +37,8 @@
       transform: scale(1.3);
     }
     .mood-option {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   display: inline-block;
   background-size: contain;
   background-repeat: no-repeat;
@@ -381,7 +381,7 @@
   hadits.innerHTML = `
     <strong>HR. Muslim</strong><br><br>
     <span style="font-size: 1.4rem; direction: rtl; display: block;">مَنْ أَدْخَلَ السُّرُورَ عَلَى قَلْبِ مُؤْمِنٍ، فَقَدْ أَسْعَدَهُ ٱللَّهُ يَوْمَ ٱلْقِيَامَةِ</span>
-    "Orang yang memberi kebahagiaan kepada saudaranya, Allah akan memberinya kebahagiaan pada hari kiamat."<br><em>(Kebahagiaan itu berkah)</em>
+    "Orang yang memberi kebahagiaan kepada saudaranya,<br>Allah akan memberinya kebahagiaan pada hari kiamat."<br><em>(Kebahagiaan itu berkah)</em>
   `;
   quotes.innerHTML = `<strong>Ustadz Adi Hidayat</strong><br><br>"Bahagia itu sederhana, ketika hati bersyukur dan jiwa tenang."`;
 }
@@ -389,14 +389,14 @@ else if (submood === 'Bahagia') {
   quran.innerHTML = `
     <strong>QS. Yunus: 58</strong><br><br>
     <span style="font-size: 1.4rem; direction: rtl; display: block;">قُلْ بِفَضْلِ ٱللَّهِ وَبِرَحْمَتِهِۦ فَبِذَٰلِكَ فَلْيَفْرَحُوا۟</span>
-    "Katakanlah: Dengan karunia Allah dan rahmat-Nya, hendaklah dengan itu mereka bergembira."<br><em>(Bahagia karena rahmat-Nya)</em>
+    "Katakanlah: Dengan karunia Allah dan rahmat-Nya,<br>hendaklah dengan itu mereka bergembira."<br><em>(Bahagia karena rahmat-Nya)</em>
   `;
   hadits.innerHTML = `
     <strong>HR. Ahmad</strong><br><br>
     <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّ ٱللَّهَ يُحِبُّ ٱلْعَبْدَ ٱلشَّكُورَ</span>
     "Sesungguhnya Allah menyukai hamba yang selalu bersyukur."<br><em>(Kebahagiaan lahir dari syukur)</em>
   `;
-  quotes.innerHTML = `<strong>Ustadz Hanan Attaki</strong><br><br>"Jangan tunggu bahagia baru bersyukur. Tapi bersyukurlah, maka kamu akan bahagia."`;
+  quotes.innerHTML = `<strong>Ustadz Hanan Attaki</strong><br><br>"Jangan tunggu bahagia baru bersyukur.<br>Tapi bersyukurlah, maka kamu akan bahagia."`;
 }
 else if (submood === 'Tenang') {
   quran.innerHTML = `
@@ -418,11 +418,11 @@ else if (submood === 'Kecewa') {
     "Allah tidak membebani seseorang melainkan sesuai kesanggupannya."<br><em>(Kekecewaan juga punya batas dan makna)</em>
   `;
   hadits.innerHTML = `
-    <strong>HR. Tirmidzi</strong><br><br>
-    <span style="font-size: 1.4rem; direction: rtl; display: block;">... أَلَا وَهِيَ ٱلْقَلْبُ</span>
-    "Ketahuilah... sesungguhnya itu adalah hati."<br><em>(Jaga hati meski kecewa)</em>
+    <strong>HR. Muslim</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّ الشَّيْطَانَ يَحْضُرُ أَحَدَكُمْ عِنْدَ كُلِّ شَيْءٍ مِنْ شَأْنِهِ، حَتَّى يَحْضُرَهُ عِنْدَ طَعَامِهِ</span>
+    "Sesungguhnya setan mendatangi kalian dalam setiap keadaan kalian.<br>Sampai setan ikut hadir di makanan kalian"<br><em>(Jaga hati meski kecewa)</em>
   `;
-  quotes.innerHTML = `<strong>Ustadz Felix Siauw</strong><br><br>"Allah tidak pernah mengecewakan hamba-Nya yang berharap penuh kepada-Nya."`;
+  quotes.innerHTML = `<strong>Ustadz Felix Siauw</strong><br><br>"Allah tidak pernah mengecewakan hamba-Nya<br>yang berharap penuh kepada-Nya."`;
 }
 else if (submood === 'Marah') {
   quran.innerHTML = `
@@ -433,15 +433,15 @@ else if (submood === 'Marah') {
   hadits.innerHTML = `
     <strong>HR. Bukhari</strong><br><br>
     <span style="font-size: 1.4rem; direction: rtl; display: block;">لَيْسَ ٱلشَّدِيدُ بِٱلصُّرَعَةِ، إِنَّمَا ٱلشَّدِيدُ ٱلَّذِي يَمْلِكُ نَفْسَهُ عِندَ ٱلْغَضَبِ</span>
-    "Bukanlah orang kuat itu yang menang dalam pergulatan, tapi yang mampu menahan amarahnya."<br><em>(Marah itu ujian kekuatan jiwa)</em>
+    "Bukanlah orang kuat itu yang menang dalam pergulatan,<br>tapi yang mampu menahan amarahnya."<br><em>(Marah itu ujian kekuatan jiwa)</em>
   `;
   quotes.innerHTML = `<strong>Ustadz Abdul Somad</strong><br><br>"Marah bukan tanda kekuatan, tapi kelemahan yang tak terkontrol."`;
 }
 else if (submood === 'Sedih') {
   quran.innerHTML = `
-    <strong>QS. Yusuf: 87</strong><br><br>
-    <span style="font-size: 1.4rem; direction: rtl; display: block;">إِنَّهُۥ لَا يَيْـَٔسُ مِن رَّوْحِ ٱللَّهِ إِلَّا ٱلْقَوْمُ ٱلْكَٰفِرُونَ</span>
-    "Janganlah kamu berputus asa dari rahmat Allah."<br><em>(Kesedihan tak berarti akhir)</em>
+    <strong>QS. Ali Imran: 139</strong><br><br>
+    <span style="font-size: 1.4rem; direction: rtl; display: block;">وَلَا تَهِنُوۡا وَ لَا تَحۡزَنُوۡا وَاَنۡتُمُ الۡاَعۡلَوۡنَ اِنۡ كُنۡتُمۡ مُّؤۡمِنِيۡنَ</span>
+    "Janganlah kamu bersikap lemah dan janganlah pula kamu bersedih hati,<br>padahal kamulah orang orang yang paling tinggi derajatnya jika kamu beriman."<br><em>(Kesedihan tak berarti akhir)</em>
   `;
   hadits.innerHTML = `
     <strong>HR. Bukhari</strong><br><br>

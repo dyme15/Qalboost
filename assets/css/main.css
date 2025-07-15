@@ -344,6 +344,52 @@ h6 {
     overflow: hidden;
   }
 
+.chart-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.chart-container .source {
+  text-align: center;
+  font-size: 0.5rem !important;
+  margin-top: 15px;
+}
+
+.chart-container .source a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.chart-container .source a:hover {
+  text-decoration: underline;
+}
+
+#artikel .section-title h2 {
+  color: #004E89;
+  font-size: 2rem !important;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#artikel .section-title p {
+  color: #333;
+  font-size: 0.8rem !important;
+  text-align: center;
+  line-height: 1.6;
+}
+
+
   .mobile-nav-active .mobile-nav-toggle {
     color: #fff;
     position: absolute;
@@ -393,8 +439,12 @@ h6 {
 
   #statistik {
     padding-top: 20px;
+    margin-bottom: -80px;
   }
 
+  #statistik h2{
+   font-size: 15px;
+  }
   .col-md-20 h3 {
     font-size: 20px;
   }
@@ -800,7 +850,7 @@ section,
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   box-sizing: content-box;
   padding: 30px 30px 30px 60px;
-  margin: 30px 15px;
+  margin: 4px 15px;
   min-height: 200px;
   position: relative;
 }
@@ -890,11 +940,13 @@ section,
   max-width: 700px;
   margin: 0 auto;
   font-size: 13px;
+  margin-bottom: -50px;
 }
 
 
 .faq .faq-container {
   margin-top: 2px;
+  margin-bottom: -40px;
 }
 
 .faq .faq-container .faq-item {
