@@ -3,6 +3,7 @@
 **Kategori:** Islamic Apps/Web & Edutech Learning
 
 **Tim:** KD2, **Universitas Islam Negeri Sumatera Utara Medan**
+
 **Anggota:** 3 Orang
 - Kaka Davi Dharmawan
 - Dodyk Fahlome
