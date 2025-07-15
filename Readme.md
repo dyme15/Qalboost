@@ -1,32 +1,34 @@
 # Qalboost: Mood Checker Islami
 
-**Kategori:** Islamic Apps/Web & Edutech  
+**Kategori:** Islamic Apps/Web & Edutech Learning
 **Tim:** KD2  
 **Anggota:** 3 Orang
 - Kaka Davi Dharmawan
 - Dodyk Fahlome
 - Dea Alya
 
-**Universitas Islam Negeri Sumatera Utara**
+**Universitas Islam Negeri Sumatera Utara Medan**
 
 ---
 
 ## Deskripsi Singkat
 
-**Qalboost** adalah platform refleksi digital berbasis web yang membantu pengguna mengenali suasana hati/mood dan mendapatkan respons Islami yang sesuai, berupa ayat Al-Qur’an, hadis, atau kutipan motivatif.  
+**Qalboost** adalah platform refleksi digital berbasis web yang praktis dan sederhana dimana dapat membantu pengguna mengenali suasana hati/mood dan mendapatkan nasihat Islami yang sesuai dengan kondisi hatinya, berupa ayat Al-Qur’an, hadis, atau kutipan motivatif dari ustadz terkemuka.  
 Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang healing harian sederhana untuk menjaga ketenangan hati dan memperkuat iman, khususnya bagi Gen Z. Harapannya, setelah rutin menggunakan platform ini, pengguna dapat memperbaiki mood dan menjaga kesehatan mental dengan pendekatan Islami sekaligus dapat menghafal ayat Al-Qur'an dan hadits yang relevan.
 
 ---
 
 ## Fitur Utama
 
-- ✅ Mood checker harian
-- ✅ Respons Islami berdasarkan kondisi emosi atau mood
-- ✅ Tampilan minimalis, user-friendly dan mudah digunakan
+- Q-Checker dengan pendekatan Islami
+- Nasihat Islami berdasarkan kondisi emosi atau mood
+- Fitur statistik dan artikel sebagai informasi kolektif tambahan yang memperkuat pemahaman seputar kesehatan mental/mood swing
+- Tampilan minimalis, user-friendly dan mudah digunakan
 
 ---
 
-## Teknologi yang Digunakan: **Frontend:** HTML, CSS, JavaScript
+## Teknologi yang Digunakan:
+**Frontend:** HTML, CSS, JavaScript
 
 ---
 
@@ -39,10 +41,11 @@ Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang 
 
 ## Tujuan & Manfaat
 
-- Membantu pengguna lebih sadar terhadap emosinya dan bagaimana cara meredakannya
+- Membantu pengguna lebih sadar terhadap emosinya dan mendapat nasihat Islam
 - Menyediakan alternatif healing berbasis iman
 - Menyambungkan emosi harian dengan nilai spiritual Islam
 - Menumbuhkan budaya refleksi dan self-care Islami sejak dini
+- Menghafal potongan ayat Al-Qur'an dan Hadits
 
 ---
 
