@@ -7,6 +7,8 @@
 - Dodyk Fahlome
 - Dea Alya
 
+**Universitas Islam Negeri Sumatera Utara**
+
 ---
 
 ## Deskripsi Singkat
