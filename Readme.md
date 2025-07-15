@@ -2,7 +2,7 @@
 
 **Kategori:** Islamic Apps/Web & Edutech Learning
 
-**Tim:** KD2, **Universitas Islam Negeri Sumatera Utara Medan**
+**Tim:** KD2 | **Universitas Islam Negeri Sumatera Utara Medan**
 
 **Anggota:** 3 Orang
 - Kaka Davi Dharmawan
@@ -24,6 +24,8 @@ Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang 
 - Nasihat Islami berdasarkan kondisi emosi atau mood
 - Fitur statistik dan artikel sebagai informasi kolektif tambahan yang memperkuat pemahaman seputar kesehatan mental/mood swing
 - Tampilan minimalis, user-friendly dan mudah digunakan
+- Mendukung tampilan responsif untuk penggunaan mobile
+- Website dapat diunduh menjadi aplikasi baik desktop/mobile
 
 ---
 
@@ -32,14 +34,14 @@ Dengan pendekatan yang ringan, interaktif, dan personal, Qalboost menjadi ruang 
 
 ---
 
-## Cara Menjalankan Aplikasi
+## Cara Menjalankan Website QalBoost
 
 1. Download semua file di repositori ini.
 2. Buka `index.html` menggunakan browser populer (Chrome, Firefox, Edge dll).
 
 ---
 
-## Tujuan & Manfaat
+## Tujuan & Manfaat QalBoost
 
 - Membantu pengguna lebih sadar terhadap emosinya dan mendapat nasihat Islam
 - Menyediakan alternatif healing berbasis iman
