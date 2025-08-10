@@ -5,9 +5,9 @@
 **Tim:** KD2 | **Universitas Islam Negeri Sumatera Utara Medan**
 
 **Anggota:** 3 Orang
-- Kaka Davi Dharmawan
-- Dodyk Fahlome
-- Dea Alya
+- Kaka Davi Dharmawan (System Analyst With Front End Dev Involment)
+- Dodyk Fahlome (Product Designer & Front End Developer)
+- Dea Alya (UI/UX Designer)
 
 ---
 
